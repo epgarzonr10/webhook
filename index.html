@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Webhook</title>
+</head>
+<body>
+  <h1>Test Webhook</h1>
+  <button id="sendWebhook">Send Webhook</button>
+
+  <script>
+    document.getElementById('sendWebhook').addEventListener('click', function () {
+      const eventData = {
+        event: "test_event",
+        user_id: 42,
+        message: "Hello from the browser!"
+      };
+
+      fetch('http://localhost:5000/webhook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(eventData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Response from server:', data);
+        alert('Webhook sent successfully!');
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error sending webhook.');
+      });
+    });
+  </script>
+</body>
+</html>
