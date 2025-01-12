@@ -45,7 +45,7 @@ python webhook.py
 ```
 ## Results pag
 <p align="center">
-  <img src="Img/result.PNG" alt="result">
+  <img src="Img/results.PNG" alt="result">
 </p>
 
 ## Results terminal
